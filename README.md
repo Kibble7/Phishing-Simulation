@@ -158,7 +158,6 @@ This project is for educational and ethical cybersecurity awareness purposes onl
 ### Without SEToolkit - Hosting fake page with Apache2 webserver
 ---
 
-###
 ### 3️⃣ Hosting with Apache2
 
 ## ⚙️ Requirements
