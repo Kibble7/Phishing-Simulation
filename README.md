@@ -65,8 +65,7 @@ This project is for educational and ethical cybersecurity awareness purposes onl
 
 ### 2️⃣ Using SEToolkit
 1.	**The threat actor machine (Kali Linux) needs to check its IP address, which will be required later to deliver the fake page. In this case, the IP address is 10.0.0.32.** 
- <img src="Set-Images/kalimachine.png" alt="kali ip "> **Fig-2 - Kali Machine (Attacker Machine) IP address**
-
+<img src="Set-Images/kalimachine.png" alt="apache2 "> **Fig-2-Kali Machine** 
       
 
 1. **Login as a Root**
