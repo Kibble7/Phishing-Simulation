@@ -136,6 +136,7 @@ This project is for educational and ethical cybersecurity awareness purposes onl
 - Enter: **http://10.0.0.32**.  
 - This will display the fake login page.  
 <img src="Set-Images/facebookFake.png" alt="Facebook fakepage ">     
+   
    **Fig-5 - Fake facebook page- Education purpose**
 
 ---
@@ -145,7 +146,7 @@ This project is for educational and ethical cybersecurity awareness purposes onl
 16. **Viewing Captured Credentials** 
 - The attacker (on **Kali Linux**) will see the username and password in the terminal.  
 
-<img src="Set-Images/captureCredential.png" alt="Facebook fakepage ">     
+<img src="Set-Images/captureCredential.png" alt="Facebook fakepage ">
    
    **Fig-5 - Capture Credentials from fake page**
 
