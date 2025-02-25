@@ -65,9 +65,9 @@ This project is for educational and ethical cybersecurity awareness purposes onl
 
 ### 2️⃣ Using SEToolkit
 1.	**The threat actor machine (Kali Linux) needs to check its IP address, which will be required later to deliver the fake page. In this case, the IP address is 10.0.0.32.** 
- <img src="Set-Images/kalimachine.png" alt="kali ip "> 
- 
-**Fig-2 - Kali Machine (Attacker Machine) IP address**
+ <img src="Set-Images/kalimachine.png" alt="kali ip "> **Fig-2 - Kali Machine (Attacker Machine) IP address**
+
+      
 
 1. **Login as a Root**
    ```bash
@@ -147,6 +147,7 @@ This project is for educational and ethical cybersecurity awareness purposes onl
 - The attacker (on **Kali Linux**) will see the username and password in the terminal.  
 
 <img src="Set-Images/captureCredential.png" alt="Facebook fakepage ">     
+   
    **Fig-5 - Capture Credentials from fake page**
 
 
