@@ -159,7 +159,7 @@ This project is for educational and ethical cybersecurity awareness purposes onl
 ---
 
 ###
-### 3️⃣ Hosting with Apache2 (Without SEToolkit)
+### 3️⃣ Hosting with Apache2
 
 ## ⚙️ Requirements
 🔹 **Two Machines Needed**  
