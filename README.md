@@ -219,8 +219,7 @@ cat credentials.txt
 ## 🛡️ Prevention Tips
 👉 **Always check the URL** before entering credentials.  
 👉 **Enable Multi-Factor Authentication (MFA)** for extra security.  
-👉 **Avoid clicking suspicious links** in emails/messages.  
-👉 **Use a password manager** to detect fake pages.  
+👉 **Avoid clicking suspicious links** in emails/messages.   
 👉 **Ensure HTTPS** on all login pages.  
 
 ---
@@ -230,7 +229,7 @@ cat credentials.txt
 🔹 Attackers use **Social Engineering** to trick users into visiting fake login pages.  
 🔹 **DNS Spoofing** & **DHCP Attacks** can be used for phishing, but modern security measures have made them harder to execute.  
 🔹 Cybercriminals are evolving—using **legitimate platforms** (Gmail, Outlook) and **real domains** to craft convincing attacks.  
-🔹 Most modern browsers detect **basic phishing pages**, making it harder for attackers.  
+🔹 Most modern browsers & email platform detect **basic phishing pages**, making it harder for attackers.  
 🔹 **User awareness** is the best defense against social engineering attacks.  
 
 ---
