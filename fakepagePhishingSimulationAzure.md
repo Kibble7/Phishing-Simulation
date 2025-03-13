@@ -16,7 +16,7 @@
 
 ### Disclaimer
 **⚠️ Ethical Use Only**  
-This project is intended for **educational purposes only** and must be used in controlled environments **with explicit permission**. Unauthorized use of this tool to collect credentials is illegal and violates GitHub policies. The goal is to **raise awareness about phishing attacks** and help organizations train users against social engineering threats.  
+This project is intended for **educational purposes only** and must be used in controlled environments **with explicit permission**. Unauthorized use of this tool to collect credentials is illegal. The goal is to **raise awareness about phishing attacks** and help organizations train users against social engineering attacks.  
 
 ---
 

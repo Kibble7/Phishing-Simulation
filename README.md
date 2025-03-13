@@ -1,6 +1,6 @@
 # Phishing
 
-Phishing is when someone tries to trick you into giving them your personal information, like your passwords or credit card details. They do this by pretending to be someone you know and trust, like a bank, a store, or a friend.
+**Phishing** is when someone tries to **trick you** into giving them your personal information, like your passwords or credit card details. They do this by pretending to be someone you know and trust, like a bank, a store, or a friend.
 
 ## Links to Pages
 - [fake page phishing simulation with Azure](https://github.com/Kibble7/cybersocialdefend/blob/main/fakepagePhishingSimulationAzure.md) - Fake page phishing simulation using Apache, PHP script in Azure VM.
