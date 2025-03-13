@@ -38,21 +38,29 @@ This repository provides a **phishing awareness lab** by setting up a Kali Linux
    - **Username**: `dev-admin`
    - **Password**: `Pa$$w0rd1234`
    - **Inbound Ports**: Open ports 80 (HTTP) and 22 (SSH)
-    ---
-    **It’s usually not a good security practice to allow ports immediately. In cloud environments, it's best to first create a VPC/VNet, define a Security Group with strict rules, and then create the VM while assigning it to the VNet and Security Group for better security. However, since we are creating this VM purely for learning phishing simulation, we are allowing ports 22 and 80 for accessibility, but this is not a best practice in a real-world environment.**
+---
+   **It’s usually not a good security practice to allow ports immediately. In cloud environments, it's best to first create a VPC/VNet, define a Security Group with strict rules, and then create the VM while assigning it to the VNet and Security Group for better security. However, since we are creating this VM purely for learning phishing simulation, we are allowing ports 22 and 80 for accessibility, but this is not a best practice in a real-world environment.**
 
-    ---
-    <img src="Set-Images/Vm-1.png" alt="var/www/html ">   **Fig-1 - VM-Security type, Image**
+---
+   <p align="center">
+   <img src="Set-Images/Vm-1.png" alt="Virtual Machine">
+   <br><b>Fig-1 - VM-Security type, Image</b>
+   </p>
 
-
-
-    ---
-    <img src="Set-Images/VM-2.png" alt="var/www/html "> **Fig-2 - VM- Username, Password, Inbound ports**
+---
+   <p align="center">
+   <img src="Set-Images/VM-2.png" alt="Virtual Machine username & password">
+   <br><b>Fig-2 - VM- Username, Password, Inbound ports</b>
+   </p>
+    
 ---
 3. **Create and deploy the VM.**
 4. **Note the Public IP** of the VM (e.g., `20.29.48.73`).
- <img src="Set-Images/VM-public ip.png" alt="var/www/html ">      
-**Fig-3 - VM- Username, Password, Inbound ports**
+   <p align="center">
+   <img src="Set-Images/VM-public ip.png" alt="Virtual Machine Public IP">
+   <br><b>Fig-3 - VM- Username, Password, Inbound ports</b>
+   </p> 
+
 ---
 
 ### Step 2: Connect via SSH
@@ -60,9 +68,15 @@ This repository provides a **phishing awareness lab** by setting up a Kali Linux
 ```sh
 ssh dev-admin@20.29.48.73
 ```
-<img src="Set-Images/VM-ssh.png" alt="var/www/html "> **Fig-4 - SSH connection from Windows machine via using cmd**
+   <p align="center">
+   <img src="Set-Images/VM-ssh.png" alt="Virtual Machine SSH connection">
+   <br><b>Fig-4 - SSH connection from Windows machine via using cmd</b>
+   </p> 
+
+**Switch to root** 
+
 ```sh
-sudo su  # Switch to root
+sudo su  
 ```
 
 ---
@@ -78,14 +92,21 @@ sudo apt install apache2 -y
 ```sh
 sudo systemctl start apache2
 ```
-<img src="Set-Images/VM-Apache.png" alt="var/www/html "> **Fig-5 - install Apache**
+   <p align="center">
+   <img src="Set-Images/VM-Apache.png" alt="Apache web server">
+   <br><b>Fig-5 - install Apache</b>
+   </p> 
 
 **Installing php - for running php file (loginCaputre.php)** 
+
+
 ```sh
-sudo apt install php -y # install PHP
+sudo apt install php -y 
 ```
+**Verify PHP**
+
 ```sh
-sudo php -v         # check PHP Version
+sudo php -v         
 ```
 ---
 
@@ -95,22 +116,38 @@ sudo php -v         # check PHP Version
 cd /var/www/html/
 ```
 **This location can access the index.html file, which is the default Apache web page** 
-<img src="Set-Images/VM-Apache-web.png" alt="var/www/html "> **Fig-6 - Apache web page**
+   <p align="center">
+   <img src="Set-Images/VM-Apache-web.png" alt="Apache web page">
+   <br><b>Fig-6 - Apache web page</b>
+   </p> 
+
 ```sh
 rm index.html # Remove default apache webpage
 ```
 ```sh
 nano index.html  # Create the login page
 ```
-<img src="Set-Images/VM-index.png" alt="var/www/html "> **Fig-7 - index.html**
+
+<p align="center">
+   <img src="Set-Images/VM-index.png" alt="index.html">
+   <br><b>Fig-7 - index.html</b>
+</p> 
+
+**creating PHP script to log data and sending to file credentials.txt**
 
 ```sh
-nano loginCapture.php  # PHP script to log data and sending to file credentials.txt
+nano loginCapture.php  
 ```
-<img src="Set-Images/loginCapturephp.png" alt="var/www/html "> **Fig-8 - loginCapture.png**
+
+<p align="center">
+  <img src="Set-Images/loginCapturephp.png" alt="var/www/html">
+  <br><b>Fig-8 - loginCapture.png</b>
+</p>
+
+**Store captured logins in credentials.txt file**
 
 ```sh
-nano credentials.txt  # Store captured logins
+nano credentials.txt  
 ```
 
 Set permissions:
