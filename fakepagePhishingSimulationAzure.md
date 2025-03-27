@@ -36,7 +36,7 @@ This repository provides a **phishing awareness lab** by setting up a Kali Linux
    - **Region**: Central US (or your preferred region)
    - **Authentication**: Password
    - **Username**: `dev-admin`
-   - **Password**: `Pa$$w0rd1234`
+   - **Password**: `Password1234`
    - **Inbound Ports**: Open ports 80 (HTTP) and 22 (SSH)
 ---
    **It’s usually not a good security practice to allow ports immediately. In cloud environments, it's best to first create a VPC/VNet, define a Security Group with strict rules, and then create the VM while assigning it to the VNet and Security Group for better security. However, since we are creating this VM purely for learning phishing simulation, we are allowing ports 22 and 80 for accessibility, but this is not a best practice in a real-world environment.**
