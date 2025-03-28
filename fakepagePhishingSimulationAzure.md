@@ -32,139 +32,179 @@ This repository provides a **phishing awareness lab** by setting up a Kali Linux
 1. **Login to Azure** and create a **Virtual Machine (VM)**.  
 2. **Set up the VM with the following configurations:**
    - **VM Name**: Test-Server01
+   - **Resource Group**: Test-Server-RSG  
+      - **create one if required**
+   - **Security type**: Standard      
    - **Image**: Kali Linux
-   - **Region**: Central US (or your preferred region)
+   - **Region**: Central US (or your preferred region) 
+
+       ---  
+      <p align="center">
+      <img src="Set-Images/VM-config.png" alt="Virtual Machine">
+      <br><b>Fig-1 - VM-initial config, Security type, Image</b>
+      </p>
    - **Authentication**: Password
    - **Username**: `dev-admin`
    - **Password**: `Password1234`
    - **Inbound Ports**: Open ports 80 (HTTP) and 22 (SSH)
----
-   **It’s usually not a good security practice to allow ports immediately. In cloud environments, it's best to first create a VPC/VNet, define a Security Group with strict rules, and then create the VM while assigning it to the VNet and Security Group for better security. However, since we are creating this VM purely for learning phishing simulation, we are allowing ports 22 and 80 for accessibility, but this is not a best practice in a real-world environment.**
 
----
-   <p align="center">
-   <img src="Set-Images/Vm-1.png" alt="Virtual Machine">
-   <br><b>Fig-1 - VM-Security type, Image</b>
-   </p>
+      ---
+      **It’s usually not a good security practice to allow ports immediately. In cloud environments, it's best to first create a VPC/VNet, define a Security Group with strict rules, and then create the VM while assigning it to the VNet and Security Group for better security. However, since we are creating this VM purely for learning phishing simulation, we are allowing ports 22 and 80 for accessibility, but this is not a best practice in a real-world environment.**
 
----
-   <p align="center">
-   <img src="Set-Images/VM-2.png" alt="Virtual Machine username & password">
-   <br><b>Fig-2 - VM- Username, Password, Inbound ports</b>
-   </p>
+      ---
+      <p align="center">
+      <img src="Set-Images/VM-2.png" alt="Virtual Machine username & password">
+      <br><b>Fig-2 - VM- Username, Password, Inbound ports</b>
+      </p>
     
----
-3. **Create and deploy the VM.**
-4. **Note the Public IP** of the VM (e.g., `20.29.48.73`).
-   <p align="center">
-   <img src="Set-Images/VM-public ip.png" alt="Virtual Machine Public IP">
-   <br><b>Fig-3 - VM- Username, Password, Inbound ports</b>
-   </p> 
+   ---
+
+3. **Disk**
+      - **Using default settings**: Feel free to modify as needed for basic     requirements. 
+      ---
+      <p align="center">
+      <img src="Set-Images/VM-disk.png" alt="Virtual Machine Public IP">
+      <br><b>Fig-3 - VM- Username, Password, Inbound ports</b>
+      </p> 
+4. **Networking:**
+      - **Virtual network**: Test-Server01-vnet - This is the default option provided by Azure Cloud (feel free to create a new VNet if needed).
+      - **Subnet**: Using the Default option
+      - **Public IP**: Using Default option - if no default option is available, create a new one.
+      - **Note**: These are not best practices for setting up a VM. Always follow best practices by creating the VNet, subnet, resource group, and NSG first, then create the VM and apply all necessary settings to ensure security and proper configuration.
+      ---
+      <p align="center">
+      <img src="Set-Images/VM-Network.png" alt="Virtual Machine Public IP">
+      <br><b>Fig-4 - Networking-Virtual Network, Subnet, Public IP</b>
+      </p> 
+
+5. **Management, Advanced, Tags**: not modifying, leave the default settings and proceed to the next step.
+6. **Create and deploy the VM.**: Go to the resources to verify the VM (Test-Server01). 
+7. **Note the Public IP** of the VM (e.g., `20.29.48.73`).
+      <p align="center">
+      <img src="Set-Images/VM-public ip.png" alt="Virtual Machine Public IP">
+      <br><b>Fig-5 - VM-Disk size, Disk type</b>
+      </p> 
 
 ---
 
-### Step 2: Connect via SSH
+### Step 2: Connect the VM (Test-Server01) via SSH
+- **Open command prompt(Windows)/teminal(Linux)**: Using any machine (Windows or Linux) 
+   - Go to terminal or CMD 
+   - Type **ssh username@ipaddress**
+   - **Are you sure you want to continue connecting**: Type **yes**  
+   -**password**: Enter password 
 
-```sh
-ssh dev-admin@20.29.48.73
-```
+   ```sh
+   ssh dev-admin@20.29.48.73
+   ```
    <p align="center">
    <img src="Set-Images/VM-ssh.png" alt="Virtual Machine SSH connection">
-   <br><b>Fig-4 - SSH connection from Windows machine via using cmd</b>
+   <br><b>Fig-6 - SSH connection from Windows machine via using cmd</b>
    </p> 
 
-**Switch to root** 
-
-```sh
-sudo su  
-```
+- **Switch to root** 
+   ```sh
+   sudo su  
+   ```
 
 ---
 
 ### Step 3: Install Web Server and PHP
+- **Login as root**: make sure to switch as a root. If not, use the sudo before command.
 
-```sh
-apt update
-```
-```sh
-sudo apt install apache2 -y
-```
-```sh
-sudo systemctl start apache2
-```
+   ```sh
+   apt update
+   ```
+- **Install apache2**:  Installing the web server (Apache2) to host a webpage and run it.
+   ```sh
+   sudo apt install apache2 -y
+   ```
+- **Start apache2**: Start the Apache web server and check its status.
+   ```sh
+   sudo systemctl start apache2
+   ```
+    ```sh
+   sudo systemctl status apache2
+   ```
    <p align="center">
    <img src="Set-Images/VM-Apache.png" alt="Apache web server">
    <br><b>Fig-5 - install Apache</b>
    </p> 
 
-**Installing php - for running php file (loginCaputre.php)** 
-
-
-```sh
-sudo apt install php -y 
-```
-**Verify PHP**
-
-```sh
-sudo php -v         
-```
----
+- **Installing php - for running php file (loginCaputre.php)** 
+   ```sh
+   sudo apt install php -y 
+   ```
+- **Verify PHP**
+   ```sh
+   sudo php -v         
+   ```
+   ---
 
 ### Step 4: Deploy the Awareness Page
-
-```sh
-cd /var/www/html/
-```
-**This location can access the index.html file, which is the default Apache web page** 
+- **Apache web page locaiton**:  Go to the location **(/var/www/html/)** to create a customized page. In this case, creating a fake page to capture user credentials. 
+   ```sh
+   cd /var/www/html/
+   ```
+- **This location can access the index.html file, which is the default Apache web page** 
    <p align="center">
    <img src="Set-Images/VM-Apache-web.png" alt="Apache web page">
    <br><b>Fig-6 - Apache web page</b>
    </p> 
+- **Apache web page locaiton**:
+   ```sh
+   rm index.html 
+   ```
+- **Create the login page**: Creating a fake page
+   ```sh
+   nano index.html 
+   ```
 
-```sh
-rm index.html # Remove default apache webpage
-```
-```sh
-nano index.html  # Create the login page
-```
+   <p align="center">
+      <img src="Set-Images/VM-index.png" alt="index.html">
+      <br><b>Fig-7 - index.html</b>
+   </p> 
 
-<p align="center">
-   <img src="Set-Images/VM-index.png" alt="index.html">
-   <br><b>Fig-7 - index.html</b>
-</p> 
+- **Creating a PHP script to capture username and Email data and sending to file credentials.txt**
+   ```sh
+   nano loginCapture.php  
+   ```
+   <p align="center">
+   <img src="Set-Images/loginCapturephp.png" alt="var/www/html">
+   <br><b>Fig-8 - loginCapture.png</b>
+   </p>
 
-**creating PHP script to log data and sending to file credentials.txt**
+- **Store captured logins in credentials.txt file**
 
-```sh
-nano loginCapture.php  
-```
+   ```sh
+   touch credentials.txt  
+   ```
 
-<p align="center">
-  <img src="Set-Images/loginCapturephp.png" alt="var/www/html">
-  <br><b>Fig-8 - loginCapture.png</b>
-</p>
-
-**Store captured logins in credentials.txt file**
-
-```sh
-nano credentials.txt  
-```
-
-Set permissions:
-```sh
-chmod 777 index.html loginCapture.php credentials.txt
-```
+- **Set permissions**: 
+   ```sh
+   chmod 777 index.html loginCapture.php credentials.txt
+   ```
 
 ---
 
 ### Step 5: Test the Page
 
-1. Open a browser and visit:
+1. Open a browser from anywhere and visit:
    ```
    http://<public-ip>/
+
    ```
 2. Enter test credentials (e.g., `test@gmail.com`, `password1234`).
-3. View the stored credentials:
+
+   <p align="center">
+   <img src="Set-Images/fake-facebook-azure.png" alt="var/www/html">
+   <br><b>Fig-8 - loginCapture.png</b>
+   </p>
+
+- There are many ways to **hide** a fake HTTP address, such as using **URL shorteners** to create an HTTPS link. This can bypass spam filters and lead users to fake websites designed to steal credentials.
+   ⚠️ Be Aware: fake page on http://<public-IP> to demonstrate how attackers can trick users. Hackers don’t just rely on these techniques — they often build **real and fake websites to lure victims into phishing attempts**. Always verify links before clicking and double-check URLs, especially from unfamiliar sources.
+
+3. View the stored credentials: Go back to terminal & type **cat credentials.txt**
    ```sh
    cat /var/www/html/credentials.txt
    ```
