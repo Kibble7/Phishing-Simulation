@@ -142,10 +142,6 @@ This repository provides a **phishing awareness lab** by setting up a Kali Linux
    ---
 
 ### Step 4: Deploy the Awareness Page
-- **Apache web page locaiton**:  Go to the location **(/var/www/html/)** to create a customized page. In this case, creating a fake page to capture user credentials. 
-   ```sh
-   cd /var/www/html/
-   ```
 - **This location can access the index.html file, which is the default Apache web page** 
    <p align="center">
    <img src="Set-Images/VM-Apache-web.png" alt="Apache web page">
@@ -206,7 +202,7 @@ This repository provides a **phishing awareness lab** by setting up a Kali Linux
 
 3. View the stored credentials: Go back to terminal & type **cat credentials.txt**
    ```sh
-   cat /var/www/html/credentials.txt
+   cat credentials.txt
    ```
 
 ---
